@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name = "ConnectteamTest">
+
+    <test name = "Apply all available Job positions in RnD department">
+        <classes>
+            <class name = "tests.ConnecteamTest" />
+        </classes>
+    </test>
+
+</suite>

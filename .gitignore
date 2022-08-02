@@ -1,0 +1,13 @@
+.classpath
+.project
+.settings/
+target/
+*.jar
+null
+*.log
+test-output/
+testng-results.xml
+.idea/*
+*.iml
+
+.DS_Store
