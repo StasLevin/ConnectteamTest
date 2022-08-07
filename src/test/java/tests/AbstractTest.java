@@ -7,8 +7,11 @@ import org.testng.annotations.*;
 import reporter.Reporter;
 import webdriver.WebDriverModule;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -57,12 +60,13 @@ public class AbstractTest {
     @AfterSuite
     public void afterSuite() {
         try {
-            Runtime rt = Runtime.getRuntime();
-            String path = Path.of("")
+            String path = Paths.get(".")
                     .toAbsolutePath()
+                    .normalize()
                     .toString()
                     .concat("/test-output/difido/current/index.html");
-            rt.exec("open " + path);
+            Desktop desktop = Desktop.getDesktop();
+            desktop.open(new File(path));
         } catch (IOException e) {
             Reporter.log("Failed to open reporter :(");
             e.printStackTrace();
